@@ -25,21 +25,3 @@ console.log("tienLuong: ", tienLuong);
 // if (!dieukien) {
 //   return;
 // }
-
-const methodtest = () => {
-  var n = 1;
-  switch (n) {
-    case 1:
-      // bbbbb
-      // break;
-      return;
-    default:
-      break;
-  }
-
-  console.log("test");
-};
-
-methodtest();
-
-console.log("test 2");
