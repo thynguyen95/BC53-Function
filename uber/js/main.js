@@ -5,6 +5,10 @@
 
 // xác định output: tổng tiền
 // hàm main: xử lý chức năng chính là tính tổng tiền
+
+//-------------------------------------------
+// CÁCH 1:
+//-------------------------------------------
 // function tinhTienUber() {
 //   var loaiXe = document.querySelector("input[name='selector']:checked").value;
 //   console.log("loaiXe: ", loaiXe);
@@ -35,29 +39,52 @@
 
 //     tongTien += tienCho;
 //     console.log("tongTien: ", tongTien);
-//   } else if(loaiXe === 'uberSUV') {
+//   } else if (loaiXe === "uberSUV") {
 //     if (soKm === 1) {
-//         tongTien = 8000;
-//       } else if (soKm > 1 && soKm <= 19) {
-//         tongTien = 8000 + (soKm - 1) * 7500;
-//       } else {
-//         tongTien = 8000 + 18 * 7500 + (soKm - 19) * 7000;
-//       }
+//       tongTien = 8000;
+//     } else if (soKm > 1 && soKm <= 19) {
+//       tongTien = 8000 + (soKm - 1) * 7500;
+//     } else {
+//       tongTien = 8000 + 18 * 7500 + (soKm - 19) * 7000;
+//     }
 
-//       // if (thoiGianCho > 3) {
-//       //   tienCho = ((thoiGianCho - 3) / 3) * 2000;
-//       //   console.log("tienCho: ", tienCho);
-//       // } else {
-//       //   tienCho = 0;
-//       // }
+//     // if (thoiGianCho > 3) {
+//     //   tienCho = ((thoiGianCho - 3) / 3) * 2000;
+//     //   console.log("tienCho: ", tienCho);
+//     // } else {
+//     //   tienCho = 0;
+//     // }
 
-//       tienCho = thoiGianCho > 3 ? ((thoiGianCho - 3) / 3) * 2000 : 0;
+//     tienCho = thoiGianCho > 3 ? ((thoiGianCho - 3) / 3) * 2000 : 0;
 
-//       tongTien += tienCho;
-//       console.log("tongTien: ", tongTien);
+//     tongTien += tienCho;
+//     console.log("tongTien: ", tongTien);
+//   } else {
+//     if (soKm === 1) {
+//       tongTien = 8000;
+//     } else if (soKm > 1 && soKm <= 19) {
+//       tongTien = 8000 + (soKm - 1) * 7500;
+//     } else {
+//       tongTien = 8000 + 18 * 7500 + (soKm - 19) * 7000;
+//     }
+
+//     // if (thoiGianCho > 3) {
+//     //   tienCho = ((thoiGianCho - 3) / 3) * 2000;
+//     //   console.log("tienCho: ", tienCho);
+//     // } else {
+//     //   tienCho = 0;
+//     // }
+
+//     tienCho = thoiGianCho > 3 ? ((thoiGianCho - 3) / 3) * 2000 : 0;
+
+//     tongTien += tienCho;
+//     console.log("tongTien: ", tongTien);
 //   }
 // }
 
+//-------------------------------------------
+// CÁCH 2:
+//-------------------------------------------
 function tinhGiaTienKmDauTien(loaiXe) {
   if (loaiXe === "uberCar") {
     return 8000;
@@ -89,7 +116,6 @@ function tinhGiaTienKm19TroDi(loaiXe) {
     }
   }
 }
-
 function tinhSoTienCho(loaiXe) {
   switch (loaiXe) {
     case "uberCar": {
@@ -132,6 +158,55 @@ function tinhTienUber() {
   document.getElementById("divThanhTien").style.display = "block";
   document.getElementById("xuatTien").innerHTML = tongTien;
 }
+
+//-------------------------------------------
+// CÁCH 3:
+//-------------------------------------------
+// function tinhTongTien(
+//   soKm,
+//   tien1KM,
+//   tien1Den19Km,
+//   tienTren19Km,
+//   giaTienCho,
+//   thoiGianCho
+// ) {
+//   var tongTien = 0;
+//   if (soKm <= 1) {
+//     tongTien = tien1KM * soKm;
+//   } else if (soKm < 19) {
+//     tongTien = tien1KM + (soKm - 1) * tien1Den19Km;
+//   } else {
+//     tongTien = tien1KM + 18 * tien1Den19Km + (soKm - 19) * tienTren19Km;
+//   }
+
+//   var tienCho = thoiGianCho > 3 ? ((thoiGianCho - 3) / 3) * giaTienCho : 0;
+//   tongTien += tienCho;
+//   return tongTien;
+// }
+// function tinhTienUber() {
+//   var loaiXe = document.querySelector("input[name='selector']:checked").value;
+//   var soKm = +document.getElementById("txt-km").value;
+//   var thoiGianCho = +document.getElementById("thoiGianCho").value;
+//   var tongTien = 0;
+
+//   switch (loaiXe) {
+//     case "uberCar":
+//       tongTien = tinhTongTien(soKm, 8000, 7500, 7000, 2000, thoiGianCho);
+//       break;
+//     case "uberSUV":
+//       tongTien = tinhTongTien(soKm, 9000, 8500, 8000, 3000, thoiGianCho);
+//       break;
+//     case "uberBlack":
+//       tongTien = tinhTongTien(soKm, 10000, 9500, 9000, 3500, thoiGianCho);
+//       break;
+//     default:
+//       console.log("hãy chọn xe");
+//       break;
+//   }
+
+//   document.getElementById("divThanhTien").style.display = "block";
+//   document.getElementById("xuatTien").innerHTML = tongTien;
+// }
 
 //in hóa đơn
 document.getElementById("inHoaDon").onclick = function () {
