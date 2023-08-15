@@ -157,6 +157,7 @@ function tinhTienUber() {
 
   document.getElementById("divThanhTien").style.display = "block";
   document.getElementById("xuatTien").innerHTML = tongTien;
+  document.getElementById("txt-loaiXe").innerHTML = loaiXe;
 }
 
 //-------------------------------------------
