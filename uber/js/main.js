@@ -157,7 +157,13 @@ function tinhTienUber() {
 
   document.getElementById("divThanhTien").style.display = "block";
   document.getElementById("xuatTien").innerHTML = tongTien;
+
+  // gán giá trị cho hóa đơn
+  // việc ẩn hiện các thẻ html khi in có thể xử lý bằng css hoặc js.
   document.getElementById("txt-loaiXe").innerHTML = loaiXe;
+  document.getElementById("txt-soKm").innerHTML = soKm;
+  document.getElementById("txt-gia").innerHTML = giaTienKmDauTien;
+  document.getElementById("txt-tongTien").innerHTML = tongTien;
 }
 
 //-------------------------------------------
@@ -213,11 +219,12 @@ function tinhTienUber() {
 document.getElementById("inHoaDon").onclick = function () {
   // gọi lại hàm tính tiền để có kết quả tổng tiền và loại xe để in giá trị vào bảng hóa đơn
   tinhTienUber();
-  document.querySelector(".action").style.display = "none";
-  document.querySelector(".hoaDon").style.display = "block";
-  window.print();
-};
 
-// nhiệm vụ về nhà:
-// 1.sửa table hóa đơn cho giống với đề yêu cầu.
-// 2. gán id cho thẻ td, và gán giá trị cho nó.
+  // cách 1: mở modal print theo trình duyệt
+  // document.querySelector(".action").style.display = "none";
+  // document.querySelector(".hoaDon").style.display = "block";
+  // window.print();
+
+  // cách 2: in bảng hóa đơn bên dưới form
+  document.querySelector(".hoaDon").style.display = "block";
+};
